@@ -2,8 +2,9 @@ package itemsifters;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
-
 import java.util.stream.Stream;
+import java.util.Comparator;
+
 
 public class ItemSearch<Item, ListCell> {
     private final ItemSifter<Item> itemSifter;
@@ -61,6 +62,10 @@ public class ItemSearch<Item, ListCell> {
         itemSifter.addDisplay(display);
 
         searchBar.setOnKeyTyped(event -> update());
+    }
+
+    public void setComparator(Comparator<Item> comparator) {
+        itemSifter.setComparator(comparator);
     }
 
     public void addItems(Stream<Item> items) {

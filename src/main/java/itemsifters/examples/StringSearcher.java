@@ -51,6 +51,12 @@ public class StringSearcher {
         };
 
         this.itemSearch = new ItemSearch<>(searchBar, resultsList, matcher, cellCreator);
+
+        /*
+         * Set the comparator so the strings are sorted in alphabetical order.
+         * Strings are already comparable, so this is very easy.
+         */
+        this.itemSearch.setComparator(String::compareTo);
     }
 
     public void addStrings(Stream<String> strings) {
