@@ -16,6 +16,15 @@
     -fx-background-insets: 5, 5, 5;
     -fx-background-radius: 5;
 }
+
 .pane {
-    -fx-background-color: rgba(188, 188, 188, 0.7);
+    -fx-background-color: rgba(222, 222, 222, 0.5);
+    -fx-border-color: rgba(255, 255, 255, 0.9);
+    -fx-border-width: 1;
+}
+
+.background {
+    -fx-background-color: rgb(211, 255, 250);
+    -fx-border-width: 1;
+    -fx-border-color: rgba(255, 255, 255, 0.9);
 }
