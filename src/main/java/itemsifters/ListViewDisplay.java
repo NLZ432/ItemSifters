@@ -29,12 +29,24 @@ public class ListViewDisplay<T, Cell> implements IDisplay<T> {
     @Override
     public void update(Stream<T> items) {
         clearItems();
+        addHeader();
+        populateListView(items);
+    }
+
+    protected void populateListView(Stream<T> items) {
         Stream<Cell> cellStream = items.map(string -> cellCreator.makeCell(string));
         cellStream.forEach(cell -> listView.getItems().add(cell));
     }
 
     public void clearItems() {
         listView.getItems().clear();
+    }
+
+    public void addHeader() {
+        if (headerCellCreator != null) {
+            Cell header = headerCellCreator.makeCell();
+            listView.getItems().add(header);
+        }
     }
 
     /**
