@@ -1,0 +1,42 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+mainClassName = 'Main'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url 'https://apisite.crmyers.dev/maven'
+    }
+}
+
+dependencies {
+    implementation(
+            'com.jfoenix:jfoenix:8.0.10',
+    )
+
+    testCompile(
+            "org.testfx:testfx-core:4.0.16-alpha",
+            'org.junit.jupiter:junit-jupiter:5.6.0',
+            'org.testfx:testfx-junit5:4.0.16-alpha',
+    )
+}
+
+//This tells your verification Tasks to use JUnit. You shouldn't need to change this
+test {
+    useJUnitPlatform()
+}
+
+//this is where you describe your jar. It's important that the Main-Class always points to the class
+// with the Main method you want run!
+jar {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
