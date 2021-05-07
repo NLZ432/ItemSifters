@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 public class TableEditor {
     private final ItemSearch<Thing, HBox> itemSearch;
-    private final double columnWidth = 100;
+    private final double columnWidth = 150;
     private final double columnSpacing = 10;
 
     public TableEditor(JFXTextField searchBar, JFXListView<HBox> listView) {
@@ -41,16 +41,19 @@ public class TableEditor {
             nameField.setText(thing.getName());
             nameField.setOnAction(event -> handleNameChange(nameField, thing));
             nameField.setMinWidth(columnWidth);
+            nameField.setMaxWidth(columnWidth);
 
             JFXTextField sizeField = new JFXTextField();
             sizeField.setText(String.valueOf(thing.getSize()));
             sizeField.setOnAction(event -> handleSizeChange(sizeField, thing));
             sizeField.setMinWidth(columnWidth);
+            sizeField.setMaxWidth(columnWidth);
 
             JFXTextField ageField = new JFXTextField();
             ageField.setText(String.valueOf(thing.getAge()));
             ageField.setOnAction(event -> handleAgeChange(ageField, thing));
             ageField.setMinWidth(columnWidth);
+            ageField.setMaxWidth(columnWidth);
 
             HBox row = new HBox(nameField, sizeField, ageField);
             row.setSpacing(columnSpacing);
@@ -63,6 +66,7 @@ public class TableEditor {
             columns.add(new Label("Start Node ID"));
             columns.add(new Label("End Node ID"));
             columns.forEach(column -> column.setMinWidth(columnWidth));
+            columns.forEach(column -> column.setMaxWidth(columnWidth));
 
             HBox row = new HBox();
             row.getChildren().addAll(columns);
