@@ -34,7 +34,7 @@ public class ListViewDisplay<T, Cell> implements IDisplay<T> {
     }
 
     protected void populateListView(Stream<T> items) {
-        Stream<Cell> cellStream = items.map(string -> cellCreator.makeCell(string));
+        Stream<Cell> cellStream = items.map(item -> cellCreator.makeCell(item));
         cellStream.forEach(cell -> listView.getItems().add(cell));
     }
 
