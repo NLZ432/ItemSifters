@@ -6,6 +6,9 @@ This is an API that provides a few tools to easilly make responsive JavaFX objec
 
 Copy the files in located in src/main/java/itemsifters/ into your project to use the classes.
 
+This repository is a gradle application that runs a simple example of a string search box.
+I hope to add more examples here soon.
+
 ## Usage
 
 ItemSearcher - give it a JFXTextField and a JFXListView, as well as functions to determine if text matches the item, and to create a cell for the list view.
