@@ -8,7 +8,10 @@ import itemsifters.displays.ListViewDisplay;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-
+/**
+ * ItemSearch manages an ItemSifter and a display. It is the simplest way to use these tools as of now.
+ * See the constructor for more info.
+ */
 public class ItemSearch<Item, ListCell> {
 
     private final ItemSifter<Item> itemSifter;
