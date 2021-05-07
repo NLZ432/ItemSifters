@@ -1,4 +1,4 @@
-package itemsifter;
+package itemsifters;
 
 import java.util.Comparator;
 import java.util.LinkedList;

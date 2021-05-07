@@ -1,4 +1,4 @@
-package itemsifter;
+package itemsifters;
 
 import java.util.stream.Stream;
 import java.util.LinkedList;

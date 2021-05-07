@@ -1,4 +1,4 @@
-package itemsifter;
+package itemsifters;
 
 import com.jfoenix.controls.JFXListView;
 

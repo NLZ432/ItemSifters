@@ -1,10 +1,10 @@
-package itemsifter.examples;
+package itemsifters.examples;
 
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXListView;
 import javafx.scene.control.Label;
 import java.util.stream.Stream;
-import itemsifter.ItemSearch;
+import itemsifters.ItemSearch;
 import java.util.Locale;
 
 /**

@@ -2,7 +2,7 @@ package views;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
-import itemsifter.examples.StringSearcher;
+import itemsifters.examples.StringSearcher;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

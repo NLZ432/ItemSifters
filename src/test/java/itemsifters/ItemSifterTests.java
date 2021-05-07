@@ -1,4 +1,4 @@
-package itemsifter;
+package itemsifters;
 
 import org.junit.jupiter.api.Test;
 
