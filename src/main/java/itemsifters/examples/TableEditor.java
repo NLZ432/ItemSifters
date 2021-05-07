@@ -2,10 +2,8 @@ package itemsifters.examples;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
-import itemsifters.IDisplay;
 import itemsifters.ItemSearch;
-import itemsifters.ItemSifter;
-import itemsifters.ListViewDisplay;
+import itemsifters.displays.ListViewDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 

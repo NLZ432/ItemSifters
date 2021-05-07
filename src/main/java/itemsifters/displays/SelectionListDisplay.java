@@ -1,4 +1,4 @@
-package itemsifters;
+package itemsifters.displays;
 
 import com.jfoenix.controls.JFXListView;
 
@@ -15,21 +15,20 @@ public class SelectionListDisplay<Item, Cell> extends ListViewDisplay<Item, Cell
     }
 
     public SelectionListDisplay(JFXListView<Cell> listView, SelectionCellCreator<Item, Cell> selectionCellCreator) {
+        this.selectedItems = new LinkedList<>();
         this.selectionCellCreator = selectionCellCreator;
         this.listView = listView;
     }
 
     @Override
     protected void populateListView(Stream<Item> items) {
-        items.forEach(item -> {
-            if (selectedItems.contains(item)) {
-                Cell cell = selectionCellCreator.makeCell(item, true);
-                listView.getItems().add(1, cell);
-            }
-            else {
-                Cell cell = selectionCellCreator.makeCell(item, false);
-                listView.getItems().add(cell);
-            }
+        selectedItems.forEach(selectedItem -> {
+            Cell cell = selectionCellCreator.makeCell(selectedItem, true);
+            listView.getItems().add(cell);
+        });
+        items.filter(item -> !selectedItems.contains(item)).forEach(item -> {
+            Cell cell = selectionCellCreator.makeCell(item, false);
+            listView.getItems().add(cell);
         });
     }
 
@@ -42,6 +41,14 @@ public class SelectionListDisplay<Item, Cell> extends ListViewDisplay<Item, Cell
     }
 
     public void clearSelectedItems() {
-        selectedItems = new LinkedList<>();
+        selectedItems.clear();
+    }
+
+    public void setSelectionCellCreator(SelectionCellCreator<Item, Cell> selectionCellCreator) {
+        this.selectionCellCreator = selectionCellCreator;
+    }
+
+    public List<Item> getSelectedItems() {
+        return selectedItems;
     }
 }

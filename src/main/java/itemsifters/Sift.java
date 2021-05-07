@@ -1,8 +1,8 @@
 package itemsifters;
 
-import java.util.stream.Stream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * This is a class that holds hard and soft filters, and runs them on item streams.
@@ -24,7 +24,11 @@ import java.util.List;
  * allowing the sifter to refer to those inputs for each item whenever it updates.
  * @param <T> The type of item being filtered.
  */
-public class Sift<T> implements ISift<T> {
+public class Sift<T> {
+
+    public interface Filter<T> {
+        boolean filter(T item);
+    }
 
     private List<Filter<T>> softFilters;
     private List<Filter<T>> hardFilters;
@@ -76,4 +80,12 @@ public class Sift<T> implements ISift<T> {
     public void removeSoftFilter(Filter<T> filter) {
         softFilters.remove(filter);
     }
+
+    public void clearHardFilters() {
+        hardFilters.clear();
+    };
+
+    public void clearSoftFilters() {
+        softFilters.clear();
+    };
 }

@@ -1,11 +1,12 @@
 package itemsifters.examples;
 
-import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXListView;
-import javafx.scene.control.Label;
-import java.util.stream.Stream;
+import com.jfoenix.controls.JFXTextField;
 import itemsifters.ItemSearch;
+import javafx.scene.control.Label;
+
 import java.util.Locale;
+import java.util.stream.Stream;
 
 /**
  * This is an example of how to use ItemSearch. See ItemSearch for an example of how to use ItemSifter.

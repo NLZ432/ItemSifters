@@ -1,5 +1,7 @@
 package itemsifters;
 
+import itemsifters.displays.IDisplay;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,8 +32,8 @@ public class ItemSifter<T> {
 
     private Comparator<T> comparator = null;
     private List<IDisplay<T>> displays;
-    private ISift<T> sift;
     private List<T> items;
+    private Sift<T> sift;
 
     public ItemSifter() {
         displays = new LinkedList<>();
@@ -88,6 +90,14 @@ public class ItemSifter<T> {
 
     public void addSoftFilter(Sift.Filter<T> filter) {
         sift.addSoftFilter(filter);
+    }
+
+    public void clearHardFilters() {
+        sift.clearHardFilters();
+    }
+
+    public void clearSoftFilters() {
+        sift.clearSoftFilters();
     }
 
     public void removeHardFilter(Sift.Filter<T> filter) {

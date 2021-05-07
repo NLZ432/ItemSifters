@@ -2,8 +2,11 @@ package itemsifters;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
-import java.util.stream.Stream;
+import itemsifters.displays.IDisplay;
+import itemsifters.displays.ListViewDisplay;
+
 import java.util.Comparator;
+import java.util.stream.Stream;
 
 
 public class ItemSearch<Item, ListCell> {
@@ -89,11 +92,11 @@ public class ItemSearch<Item, ListCell> {
         items.forEach(this::addItem);
     }
 
-    public void addHardFilter(ISift.Filter<Item> filter) {
+    public void addHardFilter(Sift.Filter<Item> filter) {
         itemSifter.addHardFilter(filter);
     }
 
-    public void addSoftFilter(ISift.Filter<Item> filter) {
+    public void addSoftFilter(Sift.Filter<Item> filter) {
         itemSifter.addSoftFilter(filter);
     }
 
