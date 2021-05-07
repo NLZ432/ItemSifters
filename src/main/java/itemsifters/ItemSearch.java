@@ -7,6 +7,7 @@ import java.util.Comparator;
 
 
 public class ItemSearch<Item, ListCell> {
+
     private final ItemSifter<Item> itemSifter;
 
     /**
@@ -64,12 +65,36 @@ public class ItemSearch<Item, ListCell> {
         searchBar.setOnKeyTyped(event -> update());
     }
 
+    public ItemSearch(JFXTextField searchBar,
+                      JFXListView<ListCell> searchResultsList,
+                      TextMatcher<Item> matcher,
+                      CellCreator<Item, ListCell> cellCreator,
+                      ListViewDisplay.HeaderCellCreator<ListCell> headerCellCreator) {
+
+        itemSifter = new ItemSifter<>();
+        itemSifter.addHardFilter(item -> matcher.isMatching(item, searchBar.getText()));
+
+        ListViewDisplay<Item, ListCell> display = new ListViewDisplay<>(searchResultsList, cellCreator::makeCell);
+        display.setHeaderCellCreator(headerCellCreator);
+        itemSifter.addDisplay(display);
+
+        searchBar.setOnKeyTyped(event -> update());
+    }
+
     public void setComparator(Comparator<Item> comparator) {
         itemSifter.setComparator(comparator);
     }
 
     public void addItems(Stream<Item> items) {
         items.forEach(this::addItem);
+    }
+
+    public void addHardFilter(ISift.Filter<Item> filter) {
+        itemSifter.addHardFilter(filter);
+    }
+
+    public void addSoftFilter(ISift.Filter<Item> filter) {
+        itemSifter.addSoftFilter(filter);
     }
 
     public void removeItem(Item item) {

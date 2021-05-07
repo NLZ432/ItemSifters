@@ -28,3 +28,9 @@
     -fx-border-width: 1;
     -fx-border-color: rgba(255, 255, 255, 0.9);
 }
+
+.text-field {
+    /*-fx-background-color: #88C0D0;*/
+    -fx-border-color: #000000;
+    -fx-border-width: 1;
+}

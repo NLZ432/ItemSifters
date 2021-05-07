@@ -3,16 +3,20 @@
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <GridPane prefHeight="721.0" prefWidth="1280.0" styleClass="background" stylesheets="@css/CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Examples">
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="643.0" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="728.0" minWidth="10.0" percentWidth="10.0" prefWidth="490.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="699.0" minWidth="0.0" prefWidth="238.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" />
   </columnConstraints>
   <rowConstraints>
       <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
@@ -20,16 +24,35 @@
       <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox spacing="20.0" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <VBox alignment="CENTER" spacing="20.0" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <JFXTextField fx:id="searchBar" focusColor="BLACK" style="-fx-border-color: black;" />
-            <JFXListView fx:id="listView" VBox.vgrow="ALWAYS" />
+            <JFXTextField fx:id="stringSearchBar" focusColor="BLACK" style="-fx-border-color: black;" />
+            <JFXListView fx:id="stringListView" VBox.vgrow="ALWAYS" />
+            <Label prefHeight="17.0" prefWidth="260.0" text="src/main/java/itemsifters/examples/StringSearcher">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
          </children>
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <padding>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER" spacing="20.0" styleClass="pane" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <children>
+            <JFXTextField fx:id="tableSearchBar" focusColor="BLACK" style="-fx-border-color: black;" />
+            <JFXListView fx:id="tableListView" prefHeight="330.0" prefWidth="464.0" VBox.vgrow="ALWAYS" />
+            <Label prefHeight="17.0" prefWidth="433.0" text="src/main/java/itemsifters/examples/TableEditor" textAlignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
    </children>

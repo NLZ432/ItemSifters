@@ -9,11 +9,16 @@ import java.util.stream.Stream;
  * needs stuff that interacts with list view's actual cell factory
  */
 public class ListViewDisplay<T, Cell> implements IDisplay<T> {
+    HeaderCellCreator<Cell> headerCellCreator = null;
     CellCreator<T, Cell> cellCreator;
     JFXListView<Cell> listView;
 
     public interface CellCreator<T, Cell> {
         Cell makeCell(T item);
+    }
+
+    public interface HeaderCellCreator<Cell> {
+        Cell makeCell();
     }
 
     public ListViewDisplay(JFXListView<Cell> listView, CellCreator<T, Cell> cellCreator) {
@@ -32,4 +37,11 @@ public class ListViewDisplay<T, Cell> implements IDisplay<T> {
         listView.getItems().clear();
     }
 
+    /**
+     * Set a cell creator that will be ran once, at the top of the list, to create a "header" cell.
+     * This is useful if you want to make a table. See TableEditor example.
+     */
+    public void setHeaderCellCreator(HeaderCellCreator<Cell> headerCellCreator) {
+        this.headerCellCreator = headerCellCreator;
+    }
 }
