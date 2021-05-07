@@ -1,3 +1,0 @@
-itemsifter/ItemSifterTests.java
- itemsifter.ItemSifterTests
- itemsifter.ItemSifterTests$1TestDisplay
