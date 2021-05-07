@@ -21,6 +21,11 @@ public class ListViewDisplay<T, Cell> implements IDisplay<T> {
         Cell makeCell();
     }
 
+    public ListViewDisplay() {
+        this.cellCreator = null;
+        this.listView = null;
+    }
+
     public ListViewDisplay(JFXListView<Cell> listView, CellCreator<T, Cell> cellCreator) {
         this.cellCreator = cellCreator;
         this.listView = listView;
@@ -28,12 +33,15 @@ public class ListViewDisplay<T, Cell> implements IDisplay<T> {
 
     @Override
     public void update(Stream<T> items) {
+        if (listView == null) return;
+
         clearItems();
         addHeader();
         populateListView(items);
     }
 
     protected void populateListView(Stream<T> items) {
+        if (cellCreator == null) return;
         Stream<Cell> cellStream = items.map(item -> cellCreator.makeCell(item));
         cellStream.forEach(cell -> listView.getItems().add(cell));
     }
