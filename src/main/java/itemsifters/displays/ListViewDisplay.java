@@ -26,6 +26,11 @@ public class ListViewDisplay<T, Cell> implements IDisplay<T> {
         this.listView = null;
     }
 
+    public ListViewDisplay(JFXListView<Cell> listView) {
+        this.listView = listView;
+        this.cellCreator = null;
+    }
+
     public ListViewDisplay(JFXListView<Cell> listView, CellCreator<T, Cell> cellCreator) {
         this.cellCreator = cellCreator;
         this.listView = listView;
@@ -55,6 +60,15 @@ public class ListViewDisplay<T, Cell> implements IDisplay<T> {
             Cell header = headerCellCreator.makeCell();
             listView.getItems().add(header);
         }
+    }
+
+    /**
+     * Set the cell creator. It takes the item and draws it however we want with whatever we want,
+     * with whatever event handlers we need attached to it. We can define this function in whatever scope we want,
+     * as long as we put it in here.
+     */
+    public void setCellCreator(CellCreator<T, Cell> cellCreator) {
+        this.cellCreator = cellCreator;
     }
 
     /**

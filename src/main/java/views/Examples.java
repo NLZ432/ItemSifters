@@ -1,13 +1,17 @@
 package views;
 
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
+import itemsifters.examples.MultiSelect;
 import itemsifters.examples.StringSearcher;
 import itemsifters.examples.TableEditor;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 import java.util.ResourceBundle;
 import java.net.URL;
@@ -26,8 +30,18 @@ public class Examples implements Initializable {
     @FXML
     private JFXListView<HBox> tableListView;
 
+    @FXML
+    private JFXListView<HBox> multiSelectView;
+
+    @FXML
+    private JFXCheckBox showSelectedCheckBox;
+
+    @FXML
+    private JFXCheckBox showUnselectedCheckBox;
+
     private StringSearcher stringSearcher;
     private TableEditor tableEditor;
+    private MultiSelect multiSelect;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,5 +71,19 @@ public class Examples implements Initializable {
         tableEditor.addThing(700,  300, "Neptune");
         tableEditor.addThing(30,   300, "Pluto");
         tableEditor.update();
+
+        multiSelect = new MultiSelect(showSelectedCheckBox, showUnselectedCheckBox, multiSelectView);
+        multiSelect.addItem(Color.RED);
+        multiSelect.addItem(Color.WHITE);
+        multiSelect.addItem(Color.BLUE);
+        multiSelect.addItem(Color.BLACK);
+        multiSelect.addItem(Color.TEAL);
+        multiSelect.addItem(Color.PURPLE);
+        multiSelect.addItem(Color.GREY);
+        multiSelect.addItem(Color.FUCHSIA);
+        multiSelect.addItem(Color.GREEN);
+        multiSelect.addItem(Color.YELLOW);
+        multiSelect.addItem(Color.ORANGE);
+        multiSelect.update();
     }
 }
