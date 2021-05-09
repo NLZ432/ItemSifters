@@ -1,5 +1,6 @@
 package itemsifters;
 
+import itemsifters.displays.IDisplay;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
