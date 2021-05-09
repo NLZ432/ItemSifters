@@ -1,6 +1,8 @@
 # ItemSifters
 
 This is an API that provides a few tools to easilly make responsive JavaFX objects that filter, sort, and display items.
+Sadly I dont have too much time to write documentation currently, so please take a look at the example application by cloning the repo and running!
+You can also email me nllopez@wpi.edu and i'll gladly help.
 
 ## Installation
 
