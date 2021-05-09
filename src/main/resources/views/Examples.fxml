@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -55,5 +56,15 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
+      <JFXTextArea editable="false" focusColor="TRANSPARENT" text="Below is TableEditor, an example class that uses the ItemSearch object.&#10;There are two important differences between this and the StringSearch example.&#10;1. The ItemSeach here hold class objects, &quot;Things&quot;, rather than just strings. The matcher here doesn't mind, they just need to do a bit more work to determine if the text matches the item.&#10;2. Text editors are created in the cellCreator that call event handlers. You can edit any field in this table, just edit, press enter, and the objects themselves will be modified." unFocusColor="#4d4d4d00" GridPane.columnIndex="3">
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </JFXTextArea>
+      <JFXTextArea focusColor="TRANSPARENT" text="Below is StringSearch, a very simple usage of the ItemSearch object. We set the text matcher function, which will take the item, in this case a string, and determine if the text in the search bar matches the item. All items that pass this matcher function are displayed with the cellCreator function." unFocusColor="#4d4d4d00" GridPane.columnIndex="1">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </JFXTextArea>
    </children>
 </GridPane>

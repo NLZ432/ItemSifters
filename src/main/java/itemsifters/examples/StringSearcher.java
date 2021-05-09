@@ -19,6 +19,7 @@ public class StringSearcher {
         /*
          * Create a matcher, which is a function that takes in an item and a string,
          * and returns true if the string matches the text.
+         * The ItemSearch will run this function with every item, whenever the search text changes.
          * This one simply checks to see if the search text exists inside the string item.
          */
         ItemSearch.TextMatcher<String> matcher = (stringItem, searchText) -> {
