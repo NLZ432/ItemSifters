@@ -6,6 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
+/**
+ * This is a display that maintains selected items, but keeping a list and sticking whether or not it has been
+ * selected into its cell creator as a boolean. The benefit of this is you can maintain selections in between updates.
+ * This is totally unnecessary, because your cellCreator, and any filters can just be defined in the scope of your
+ * "selections" list, meaning you can refer to it similar to how this thing does it.
+ */
 public class SelectionListDisplay<Item, Cell> extends ListViewDisplay<Item, Cell> {
     SelectionCellCreator<Item, Cell> selectionCellCreator;
     List<Item> selectedItems;
