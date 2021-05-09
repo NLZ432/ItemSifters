@@ -60,9 +60,9 @@ public class TableEditor {
 
         ListViewDisplay.HeaderCellCreator<HBox> headerCreator = () -> {
             List<Label> columns = new LinkedList<>();
-            columns.add(new Label("ID"));
-            columns.add(new Label("Start Node ID"));
-            columns.add(new Label("End Node ID"));
+            columns.add(new Label("Name"));
+            columns.add(new Label("Size"));
+            columns.add(new Label("Age"));
             columns.forEach(column -> column.setMinWidth(columnWidth));
             columns.forEach(column -> column.setMaxWidth(columnWidth));
 
