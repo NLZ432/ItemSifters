@@ -1,9 +1,6 @@
 package views;
 
-import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import itemsifters.examples.MultiSelect;
 import itemsifters.examples.StringSearcher;
 import itemsifters.examples.TableEditor;
@@ -11,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 import java.util.ResourceBundle;
@@ -19,16 +17,34 @@ import java.net.URL;
 public class Examples implements Initializable {
 
     @FXML
+    private JFXRadioButton stringSearchButton;
+
+    @FXML
+    private VBox stringSearchVBox;
+
+    @FXML
     private JFXTextField stringSearchBar;
 
     @FXML
     private JFXListView<Label> stringListView;
 
     @FXML
+    private JFXRadioButton tableEditorButton;
+
+    @FXML
+    private VBox tableEditorVBox;
+
+    @FXML
     private JFXTextField tableSearchBar;
 
     @FXML
     private JFXListView<HBox> tableListView;
+
+    @FXML
+    private JFXRadioButton multiSelectButton;
+
+    @FXML
+    private VBox multiSelectVBox;
 
     @FXML
     private JFXListView<HBox> multiSelectView;
@@ -43,8 +59,43 @@ public class Examples implements Initializable {
     private TableEditor tableEditor;
     private MultiSelect multiSelect;
 
+    private void hideWindows() {
+        stringSearchVBox.setVisible(false);
+        tableEditorVBox.setVisible(false);
+        multiSelectVBox.setVisible(false);
+    }
+
+    private void showStringSearch() {
+        hideWindows();
+        stringSearchButton.setSelected(true);
+        tableEditorButton.setSelected(false);
+        multiSelectButton.setSelected(false);
+        stringSearchVBox.setVisible(true);
+    }
+
+    private void showTableEditor() {
+        hideWindows();
+        stringSearchButton.setSelected(false);
+        tableEditorButton.setSelected(true);
+        multiSelectButton.setSelected(false);
+        tableEditorVBox.setVisible(true);
+    }
+
+    private void showMultiSelect() {
+        hideWindows();
+        stringSearchButton.setSelected(false);
+        tableEditorButton.setSelected(false);
+        multiSelectButton.setSelected(true);
+        multiSelectVBox.setVisible(true);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        stringSearchButton.setOnAction(event -> showStringSearch());
+        tableEditorButton.setOnAction(event -> showTableEditor());
+        multiSelectButton.setOnAction(event -> showMultiSelect());
+
         stringSearcher = new StringSearcher(stringSearchBar, stringListView);
         stringSearcher.addString("Bartholomew");
         stringSearcher.addString("Matthew");
@@ -85,5 +136,7 @@ public class Examples implements Initializable {
         multiSelect.addItem(Color.YELLOW);
         multiSelect.addItem(Color.ORANGE);
         multiSelect.update();
+
+        showStringSearch();
     }
 }

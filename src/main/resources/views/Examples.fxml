@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -10,100 +11,108 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@css/CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Examples">
+<GridPane prefHeight="702.0" prefWidth="838.0" styleClass="background" stylesheets="@css/CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Examples">
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="555.3333129882812" minWidth="0.0" prefWidth="179.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="728.0" minWidth="0.0" percentWidth="5.0" prefWidth="515.9999694824219" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.0" minWidth="0.0" prefWidth="473.6666259765625" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.0" minWidth="0.0" percentWidth="5.0" prefWidth="420.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="643.0" minWidth="10.0" prefWidth="319.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="643.0" minWidth="10.0" percentWidth="5.0" prefWidth="319.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.0" minWidth="0.0" prefWidth="907.666748046875" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.0" minWidth="0.0" percentWidth="5.0" prefWidth="132.333251953125" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" percentHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="245.0" minHeight="10.0" percentHeight="5.0" prefHeight="229.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="580.3333129882812" minHeight="10.0" prefHeight="525.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="285.66668701171875" minHeight="10.0" percentHeight="20.0" prefHeight="137.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox alignment="CENTER" spacing="20.0" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <StackPane fx:id="stacPane" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <JFXTextField fx:id="stringSearchBar" focusColor="BLACK" style="-fx-border-color: black;" />
-            <JFXListView fx:id="stringListView" styleClass="listView" VBox.vgrow="ALWAYS" />
-            <Label prefHeight="17.0" prefWidth="260.0" text="src/main/java/itemsifters/examples/StringSearcher">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-         </children>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-      <VBox alignment="CENTER" prefHeight="647.0" prefWidth="626.0" spacing="20.0" styleClass="pane" GridPane.columnIndex="3" GridPane.rowIndex="1">
-         <children>
-            <JFXTextField fx:id="tableSearchBar" focusColor="BLACK" style="-fx-border-color: black;" />
-            <JFXListView fx:id="tableListView" prefHeight="330.0" prefWidth="464.0" styleClass="listView" VBox.vgrow="ALWAYS" />
-            <Label prefHeight="17.0" prefWidth="433.0" text="src/main/java/itemsifters/examples/TableEditor" textAlignment="CENTER">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-      <JFXTextArea editable="false" focusColor="TRANSPARENT" text="Below is TableEditor, an example class that uses the ItemSearch object.&#10;There are two important differences between this and the StringSearch example.&#10;1. The ItemSeach here hold class objects, &quot;Things&quot;, rather than just strings. The matcher here doesn't mind, they just need to do a bit more work to determine if the text matches the item.&#10;2. Text editors are created in the cellCreator that call event handlers. You can edit any field in this table, just edit, press enter, and the objects themselves will be modified." unFocusColor="#4d4d4d00" GridPane.columnIndex="3">
-         <GridPane.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </GridPane.margin>
-      </JFXTextArea>
-      <JFXTextArea editable="false" focusColor="TRANSPARENT" text="Below is StringSearch, a very simple usage of the ItemSearch object. We set the text matcher function, which will take the item, in this case a string, and determine if the text in the search bar matches the item. All items that pass this matcher function are displayed with the cellCreator function." unFocusColor="#4d4d4d00" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </GridPane.margin>
-      </JFXTextArea>
-      <VBox alignment="CENTER" spacing="20.0" styleClass="pane" GridPane.columnIndex="5" GridPane.rowIndex="1">
-         <children>
-            <HBox alignment="CENTER" prefHeight="71.0" prefWidth="464.0" spacing="50.0">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+            <VBox fx:id="tableEditorVBox" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
-                  <JFXCheckBox fx:id="showSelectedCheckBox" text="Show selected">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </JFXCheckBox>
-                  <JFXCheckBox fx:id="showUnselectedCheckBox" text="Show unselected">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </JFXCheckBox>
+                  <JFXTextArea editable="false" focusColor="TRANSPARENT" prefWidth="752.0" text="Below is TableEditor, an example class that uses the ItemSearch object.&#10;There are two important differences between this and the StringSearch example.&#10;1. The ItemSeach here hold class objects, &quot;Things&quot;, rather than just strings. The matcher here doesn't mind, they just need to do a bit more work to determine if the text matches the item.&#10;2. Text editors are created in the cellCreator that call event handlers. You can edit any field in this table, just edit, press enter, and the objects themselves will be modified." unFocusColor="#4d4d4d00" />
+                  <VBox alignment="CENTER" prefHeight="441.0" prefWidth="752.0" spacing="20.0" styleClass="pane">
+                     <children>
+                        <JFXTextField fx:id="tableSearchBar" focusColor="BLACK" prefHeight="27.0" prefWidth="342.0" style="-fx-border-color: black;" />
+                        <JFXListView fx:id="tableListView" prefHeight="222.0" prefWidth="265.0" styleClass="listView" VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="17.0" prefWidth="325.0" text="src/main/java/itemsifters/examples/TableEditor" textAlignment="CENTER">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
                </children>
-            </HBox>
-            <JFXListView fx:id="multiSelectView" styleClass="listView" VBox.vgrow="ALWAYS" />
-            <Label prefHeight="17.0" prefWidth="260.0" text="src/main/java/itemsifters/examples/StringSearcher">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
+            </VBox>
+            <VBox fx:id="multiSelectVBox" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <JFXTextArea editable="false" focusColor="#405aa800" prefHeight="157.0" prefWidth="752.0" text="Below is MultiSelect, an example that uses the ItemSifter. This is a good example of how to gain more control of what filters you want to use, rather than always using a search bar. It is also a good example how how to main a list of selected items, that persists when reprocessing the items. Try selecting items and then adjusting the filter checkboxes, and observe how their event handlers are defined in the scope of the filter input checkboxes in order to determine whether or not they should be displayed. ItemSearch is a good tool, but using ItemSifter directly gives you more control over the filters and the method of display.&#10;" unFocusColor="#ffffff00" />
+                  <VBox alignment="CENTER" prefHeight="444.0" prefWidth="652.0" spacing="20.0" styleClass="pane">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="71.0" prefWidth="464.0" spacing="50.0">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <children>
+                              <JFXCheckBox fx:id="showSelectedCheckBox" prefHeight="30.0" prefWidth="129.0" text="Show selected" />
+                              <JFXCheckBox fx:id="showUnselectedCheckBox" prefHeight="18.0" prefWidth="134.0" text="Show unselected" />
+                           </children>
+                        </HBox>
+                        <JFXListView fx:id="multiSelectView" styleClass="listView" VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="17.0" prefWidth="260.0" text="src/main/java/itemsifters/examples/StringSearcher">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox fx:id="stringSearchVBox" prefHeight="200.0" prefWidth="100.0" visible="false">
+               <children>
+                  <JFXTextArea editable="false" focusColor="TRANSPARENT" text="Below is StringSearch, a very simple usage of the ItemSearch object. We set the text matcher function, which will take the item, in this case a string, and determine if the text in the search bar matches the item. All items that pass this matcher function are displayed with the cellCreator function." unFocusColor="#4d4d4d00" />
+                  <VBox alignment="CENTER" prefHeight="570.0" prefWidth="752.0" spacing="20.0" styleClass="pane">
+                     <children>
+                        <JFXTextField fx:id="stringSearchBar" focusColor="BLACK" style="-fx-border-color: black;" />
+                        <JFXListView fx:id="stringListView" styleClass="listView" VBox.vgrow="ALWAYS" />
+                        <Label prefHeight="17.0" prefWidth="260.0" text="src/main/java/itemsifters/examples/StringSearcher">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
          </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-      <JFXTextArea editable="false" text="Below is MultiSelect, an example that uses the ItemSifter. This is a good example of how to gain more control of what filters you want to use, rather than always using a search bar. It is also a good example how how to main a list of selected items, that persists when reprocessing the items. Try selecting items and then adjusting the filter checkboxes, and observe how their event handlers are defined in the scope of the filter input checkboxes in order to determine whether or not they should be displayed. ItemSearch is a good tool, but using ItemSifter directly gives you more control over the filters and the method of display.&#10;" GridPane.columnIndex="5">
-         <GridPane.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </GridPane.margin>
-      </JFXTextArea>
+      </StackPane>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <VBox alignment="CENTER" prefHeight="140.0" prefWidth="407.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="442.0" spacing="20.0">
+                     <children>
+                        <JFXRadioButton fx:id="stringSearchButton" text="StringSearch" />
+                        <JFXRadioButton fx:id="tableEditorButton" text="TableEditor" />
+                        <JFXRadioButton fx:id="multiSelectButton" text="MultiSelect" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </GridPane>
