@@ -17,8 +17,10 @@ import java.util.stream.Stream;
  *      Filter<Item> validFilter = (item) -> {
  *          boolean showValidChecked = showValidItems.isSelected();
  *          boolean itemIsValid = item.isValid()
- *          boolean passesFilter = showValidChecked && itemIsValid;
- *          return passesFilter;
+ *          if (showValidChecked && itemIsValid)
+ *              return true;
+ *          else
+ *              return false;
  *      }
  * The main idea here is that the filter is defined in the scope of any inputs needed, such as a checkbox,
  * allowing the sifter to refer to those inputs for each item whenever it updates.
