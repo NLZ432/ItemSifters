@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="702.0" prefWidth="838.0" styleClass="background" stylesheets="@css/CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Examples">
+<GridPane prefHeight="702.0" prefWidth="838.0" styleClass="background" stylesheets="@css/CSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Examples">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="728.0" minWidth="0.0" percentWidth="5.0" prefWidth="515.9999694824219" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.0" minWidth="0.0" prefWidth="907.666748046875" />
@@ -29,7 +29,7 @@
    <children>
       <StackPane fx:id="stacPane" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <VBox fx:id="tableEditorVBox" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <VBox fx:id="tableEditorVBox" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <JFXTextArea editable="false" focusColor="TRANSPARENT" prefWidth="752.0" text="Below is TableEditor, an example class that uses the ItemSearch object.&#10;There are two important differences between this and the StringSearch example.&#10;1. The ItemSeach here hold class objects, &quot;Things&quot;, rather than just strings. The matcher here doesn't mind, they just need to do a bit more work to determine if the text matches the item.&#10;2. Text editors are created in the cellCreator that call event handlers. You can edit any field in this table, just edit, press enter, and the objects themselves will be modified." unFocusColor="#4d4d4d00" />
                   <VBox alignment="CENTER" prefHeight="441.0" prefWidth="752.0" spacing="20.0" styleClass="pane">
@@ -45,13 +45,16 @@
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets left="95.0" right="95.0" />
+                     </VBox.margin>
                   </VBox>
                </children>
             </VBox>
-            <VBox fx:id="multiSelectVBox" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="multiSelectVBox" prefHeight="200.0" prefWidth="100.0" visible="false">
                <children>
                   <JFXTextArea editable="false" focusColor="#405aa800" prefHeight="157.0" prefWidth="752.0" text="Below is MultiSelect, an example that uses the ItemSifter. This is a good example of how to gain more control of what filters you want to use, rather than always using a search bar. It is also a good example how how to main a list of selected items, that persists when reprocessing the items. Try selecting items and then adjusting the filter checkboxes, and observe how their event handlers are defined in the scope of the filter input checkboxes in order to determine whether or not they should be displayed. ItemSearch is a good tool, but using ItemSifter directly gives you more control over the filters and the method of display.&#10;" unFocusColor="#ffffff00" />
-                  <VBox alignment="CENTER" prefHeight="444.0" prefWidth="652.0" spacing="20.0" styleClass="pane">
+                  <VBox alignment="CENTER" prefHeight="387.0" prefWidth="531.0" spacing="20.0" styleClass="pane">
                      <children>
                         <HBox alignment="CENTER" prefHeight="71.0" prefWidth="464.0" spacing="50.0">
                            <padding>
@@ -62,7 +65,7 @@
                               <JFXCheckBox fx:id="showUnselectedCheckBox" prefHeight="18.0" prefWidth="134.0" text="Show unselected" />
                            </children>
                         </HBox>
-                        <JFXListView fx:id="multiSelectView" styleClass="listView" VBox.vgrow="ALWAYS" />
+                        <JFXListView fx:id="multiSelectView" prefHeight="263.0" prefWidth="453.0" styleClass="listView" VBox.vgrow="ALWAYS" />
                         <Label prefHeight="17.0" prefWidth="260.0" text="src/main/java/itemsifters/examples/StringSearcher">
                            <font>
                               <Font size="11.0" />
@@ -73,7 +76,7 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
                      <VBox.margin>
-                        <Insets left="50.0" right="50.0" />
+                        <Insets left="200.0" right="200.0" />
                      </VBox.margin>
                   </VBox>
                </children>
