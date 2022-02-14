@@ -41,11 +41,8 @@ public class Sift<T> {
     }
 
     public Stream<T> sift(Stream<T> items) {
-
         Stream<T> filtered = items.filter(this::applyHardFilters);
-
         filtered = filtered.filter(this::applySoftFilters);
-
         return filtered;
     }
 
