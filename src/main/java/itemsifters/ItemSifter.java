@@ -42,24 +42,14 @@ public class ItemSifter<T> {
     }
 
     public void update() {
-        Stream<T> processedItems = processItems();
-        displayItems(processedItems);
-    }
-
-    public Stream<T> processItems() {
         Stream<T> itemStream = items.stream();
-
         itemStream = siftItems(itemStream);
-
         itemStream = sortItems(itemStream);
-
-        return itemStream;
+        displayItems(itemStream);
     }
 
     private Stream<T> siftItems(Stream<T> items) {
-        if (sift != null) {
-            items = sift.sift(items);
-        }
+        if (sift != null) items = sift.sift(items);
         return items;
     }
 
